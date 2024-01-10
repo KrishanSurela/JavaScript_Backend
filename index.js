@@ -1,16 +1,27 @@
 require("dotenv").config();
+
+const serverless = require("serverless-http");
+const router = express.Router();
+
 const express = require("express");
 const app = express();
 
 const port = 5000;
 
 app.get("/", (req, res) => {
-  res.send("Hello World ! I am Krishan Surela");
+  res.json({
+    hello: "Krishan",
+  });
 });
+
+app.use('/.netlify/functions/index',router)
+
 
 app.get("/login", (req, res) => {
   res.send("DashBoard Page");
 });
+
+module.exports.handler = serverless(app);
 
 app.listen(process.env.PORT, () => {
   console.log(`server is listening at ${port}`);
@@ -35,3 +46,5 @@ app.listen(process.env.PORT, () => {
 //for use this package =>
 
 //process.env.variable_name
+
+//FREE DEPLOYMENT CLOUD Service NETLIFY.com
