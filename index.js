@@ -1,21 +1,27 @@
 require("dotenv").config();
 
 const serverless = require("serverless-http");
-const router = express.Router();
 
 const express = require("express");
 const app = express();
 
+const router = express.Router();
+
 const port = 5000;
 
-app.get("/", (req, res) => {
+router.get("/", (req, res) => {
   res.json({
     hello: "Krishan",
   });
 });
 
-app.use('/.netlify/functions/index',router)
+router.get("/test", (req, res) => {
+  res.json({
+    Hi: "This is testing Page",
+  });
+});
 
+app.use("/.netlify/functions/index", router);
 
 app.get("/login", (req, res) => {
   res.send("DashBoard Page");
@@ -48,3 +54,7 @@ app.listen(process.env.PORT, () => {
 //process.env.variable_name
 
 //FREE DEPLOYMENT CLOUD Service NETLIFY.com
+
+//npm install express netlify-lambda serverless-http
+
+//create netlify.toml
