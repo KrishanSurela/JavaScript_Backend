@@ -5,9 +5,10 @@ const app = express();
 
 const port = 5000;
 app.get("/", (req, res) => {
-  res.json({
-    hello: "Krishan",
-  });
+  // res.json({
+  //   hello: "Krishan",
+  // });
+  res.send("Welcome to front Landing page ");
 });
 
 app.get("/login", (req, res) => {
