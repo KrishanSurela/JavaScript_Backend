@@ -1,33 +1,18 @@
 require("dotenv").config();
 
-const serverless = require("serverless-http");
-
 const express = require("express");
 const app = express();
 
-const router = express.Router();
-
 const port = 5000;
-
-router.get("/", (req, res) => {
+app.get("/", (req, res) => {
   res.json({
     hello: "Krishan",
   });
 });
 
-router.get("/test", (req, res) => {
-  res.json({
-    Hi: "This is testing Page",
-  });
-});
-
-app.use("/.netlify/functions/index", router);
-
 app.get("/login", (req, res) => {
   res.send("DashBoard Page");
 });
-
-module.exports.handler = serverless(app);
 
 app.listen(process.env.PORT, () => {
   console.log(`server is listening at ${port}`);
