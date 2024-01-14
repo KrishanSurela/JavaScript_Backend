@@ -39,8 +39,4 @@ app.listen(process.env.PORT, () => {
 
 //process.env.variable_name
 
-//FREE DEPLOYMENT CLOUD Service NETLIFY.com
-
-//npm install express netlify-lambda serverless-http
-
-//create netlify.toml
+//npm i -D nodemon
