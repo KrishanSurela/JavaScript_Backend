@@ -4,7 +4,7 @@
   },
   "name": "js_backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "a backend",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
