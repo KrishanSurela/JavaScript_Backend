@@ -40,3 +40,5 @@ app.listen(process.env.PORT, () => {
 //process.env.variable_name
 
 //npm i -D nodemon
+
+// mkdir controllers db middlewares models routes utils       in src folder
