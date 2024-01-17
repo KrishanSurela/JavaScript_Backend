@@ -1,44 +1,41 @@
-require("dotenv").config();
+//require('dotenv').config({path: './env'})
 
-const express = require("express");
-const app = express();
+import dotenv from "dotenv";
 
-const port = 5000;
-app.get("/", (req, res) => {
-  // res.json({
-  //   hello: "Krishan",
-  // });
-  res.send("Welcome to front Landing page ");
+import connectDB from "./db/index.js";
+
+dotenv.config({
+  path: "./env",
 });
 
-app.get("/login", (req, res) => {
-  res.send("DashBoard Page");
-});
+connectDB();
 
-app.listen(process.env.PORT, () => {
-  console.log(`server is listening at ${port}`);
-});
 
-//npm init
-//npm install express
-//at package.json we change "scripts": {
-//    "start": "node index.js"
-//}
 
-//npm run start for run the express code
 
-//npm i dotenv
+//DataBase Connect Using Immediately Invoked Function Expression (IIFE) and async await
 
-//create new file name as .env and write the code there
+/*
 
-//for add dotenv package to this page =>
+import mongoose from "mongoose";
+import { DB_NAME } from "./constants";
 
-// require('dotenv').config()
 
-//for use this package =>
+import express from "express";
+const app = express()
+(async () => {
+  try {
+    await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`);
+    app.on("error", (error) => {
+      console.log("Error :", error);
+      throw error;
+    });
 
-//process.env.variable_name
-
-//npm i -D nodemon
-
-// mkdir controllers db middlewares models routes utils       in src folder
+    app.listen(process.env.PORT,()=>{
+      console.log(`App is listening on port ${process.env.PORT}`);
+    })
+  } catch (error) {
+    console.error("Error :", error);
+  }
+})();
+*/
