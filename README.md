@@ -32,10 +32,10 @@
 - mkdir controllers db middlewares models routes utils in src
 - and create file app.js constants.js index.js in src folder
 
-## npm i mongoose-aggregate-paginate-v2 (it allows us to write aggregation quary)
+## [watchhistory ke liye] npm i mongoose-aggregate-paginate-v2 (it allows us to write aggregation quary ,it is a true power of mongoDb which is using for prodution grade)
 
 ## npm i bcrypt (it helps to make password hash)
 
 ## npm install jsonwebtoken (for token)
 
-### jwt is bearor token (.env file check kijiye)
+### jwt is bearor token (mtlb ye token jiske pass h m usko data bhejunga) (.env file check kijiye)
