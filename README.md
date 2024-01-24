@@ -39,3 +39,7 @@
 ## npm install jsonwebtoken (for token)
 
 ### jwt is bearor token (mtlb ye token jiske pass h m usko data bhejunga) (.env file check kijiye)
+
+## npm install cloudinary (for image /video cloudservice)
+
+## npm install multer (for upload img)
