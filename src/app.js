@@ -14,4 +14,15 @@ app.use(express.urlencoded({extended:true,limit:"18kb"})) // middleware configur
 app.use(express.static("public"))// middleware configure for files and folder
 app.use(cookieParser())
 
+//routes import
+
+import userRouter from './routes/user.routes.js'
+
+//routes declaration 
+app.use("/api/v1/users",userRouter)
+
+//http://localhost:8080/api/users/register
+
 export { app }
+
+
