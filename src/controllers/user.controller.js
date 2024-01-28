@@ -18,7 +18,10 @@ const registeruser = asyncHandler(async (req, res) => {
   // return response
 
   const { fullname, email, username, password } = req.body;
-  console.log("Email :", email);
+  // console.log("Email :", email);
+  // console.log(req.files);
+  // console.log(req.body);
+
   /*
   if(fullname===""){
     throw new apiError(400,"Fullname Is Required")
@@ -35,7 +38,7 @@ const registeruser = asyncHandler(async (req, res) => {
     throw new apiError(400, "Enter Valid Email");
   }
 
-  const existedUser = User.findOne({
+  const existedUser = await User.findOne({
     $or: [{ username }, { email }],
   });
 
@@ -44,7 +47,17 @@ const registeruser = asyncHandler(async (req, res) => {
   }
   //multer hme req.files ka access deta hai ,jaise express req.body deta hai
   const avatarLocalPath = req.files?.avatar[0]?.path;
-  const coverImageLocalPath = req.files?.coverImage[0]?.path;
+  // const coverImageLocalPath = req.files?.coverImage[0]?.path; jab postman pe coverimage field nahi lete hai to error aati hai esse
+
+  let coverImageLocalPath;
+
+  if (
+    req.files &&
+    Array.isArray(req.files.coverImage) &&
+    req.files.coverImage.length > 0
+  ) {
+    coverImageLocalPath = req.files.coverImage[0].path;
+  }
 
   if (!avatarLocalPath) {
     throw new apiError(400, "Avator File is Required");
@@ -75,6 +88,7 @@ const registeruser = asyncHandler(async (req, res) => {
   if (!createdUser) {
     throw new apiError(500, "Something went Wrong while registering the user");
   }
+  // console.log(res);
 
   return res
     .status(201)
